@@ -1,0 +1,50 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "cds watch",
+      "command": "cds",
+      "args": [
+        "watch"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "type": "shell",
+      "label": "cds serve",
+      "command": "cds",
+      "args": [
+        "serve",
+        "--with-mocks",
+        "--in-memory?"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "type": "build.mta",
+      "label": "Build ",
+      "taskType": "Build",
+      "projectPath": "/home/user/projects/BillyCAPo",
+      "extensions": []
+    },
+    {
+      "type": "deploy.mta.cf",
+      "label": "Deploy to Cloud Foundry ",
+      "taskType": "Deploy",
+      "mtarPath": "/home/user/projects/BillyCAPo/mta_archives/BillyCAPo_1.0.0.mtar",
+      "extensions": [],
+      "dependsOn": [
+        "Build "
+      ],
+      "cfTarget": "mariconauta",
+      "cfEndpoint": "https://api.cf.us10-001.hana.ondemand.com",
+      "cfOrg": "b42f9bc4trial",
+      "cfSpace": "dev"
+    }
+  ]
+}
